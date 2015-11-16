@@ -120,11 +120,8 @@ var Parcer = {
                 S.push(E.pop());
             }
         }
-
         //quita las comas y coloca espacio
-        return S.toString().replace(/[,]/g, ' ').
-            //quita 2 espacios de seguidos
-        replace(/\s{2}/g, ' ');
+        return S.join(" ");
     }
 
 
@@ -134,7 +131,7 @@ var Arbol = {
 
     crear: function (exprecion) {
         var posfija = Parcer.aPosFija(exprecion);
-
+        console.info("Exprecion posfija:", posfija);
         //  posfija = "2 23 6 + * 1 -";
 
         var posfija = posfija.split(" ");
