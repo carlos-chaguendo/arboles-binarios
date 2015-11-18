@@ -1,2 +1,5 @@
 # arboles-binarios
-Convertir una exprecion agebraica a un arbol binario
+Convierte una exprecion agebraica a un arbol binario.
+
+operadores
++ - * / ^
