@@ -26,6 +26,8 @@ function recorerEnOrden() {
 
     Recorrido.inorden(actualesNodos, log3);
     console.info("INORDEN", log3)
+
+    Garfico.graficarArbol("", true, actualesNodos);
 }
 
 
@@ -215,6 +217,41 @@ var Arbol = {
         };
     }
 };
+
+
+var Garfico = {
+    graficarArbol: function (root) {
+        this.graficarArbol("", true, root);
+    },
+
+    graficarArbol(prefix, isTail, node) {
+
+        if (!node) {
+            return;
+        }
+
+        console.info(prefix + (isTail ? "└── " : "├── ") + (node.label));
+
+
+
+        if (!node.children) {
+            return;
+        }
+
+        for (var i = 0; i < node.children.length - 1; i++) {
+            this.graficarArbol(prefix + (isTail ? "    " : "│   "), false, node
+                .children[i]);
+        }
+        if (node.children.length >= 1) {
+
+
+            this.graficarArbol(prefix + (isTail ? "    " : "│   "), true, node.children[(node.children.length - 1)]);
+
+
+        }
+    }
+}
+
 
 var Recorrido = {
     /* (raíz, izquierdo, derecho).Para recorrer un árbol binario no vacío en preorden, hay que realizar las siguientes operaciones, *recursivamente en cada nodo, comenzando con el nodo de raíz:
