@@ -121,7 +121,11 @@ var Parcer = {
             }
         }
         //quita las comas y coloca espacio
-        return S.join(" ");
+        return S.join(" ")
+		//elimina 2 o mas espacios juntos
+		.replace(/\s{2,}/g, ' ').
+		//elimina espacios al inicio y final
+		trim();
     }
 
 
