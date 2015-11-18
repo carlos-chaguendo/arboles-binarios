@@ -10,6 +10,24 @@ $(document).ready(function () {
     $('#messages').puigrowl();
 });
 
+function recorerEnOrden() {
+
+
+    var log1 = [],
+        log2 = [],
+        log3 = [];
+
+    Recorrido.preorden(actualesNodos, log1);
+    console.info("PREORDEN", log1)
+
+    Recorrido.postorden(actualesNodos, log2);
+    console.info("POSTORDEN,", log2)
+
+
+    Recorrido.inorden(actualesNodos, log3);
+    console.info("INORDEN", log3)
+}
+
 
 
 function nuevoArbol() {
@@ -17,6 +35,7 @@ function nuevoArbol() {
     var expresion = $('#txtExtrada').val();
 
     var nodos = Arbol.crear(expresion);
+    window.actualesNodos = nodos[0];
 
     console.info(nodos);
 
@@ -122,10 +141,10 @@ var Parcer = {
         }
         //quita las comas y coloca espacio
         return S.join(" ")
-		//elimina 2 o mas espacios juntos
-		.replace(/\s{2,}/g, ' ').
-		//elimina espacios al inicio y final
-		trim();
+            //elimina 2 o mas espacios juntos
+            .replace(/\s{2,}/g, ' ').
+            //elimina espacios al inicio y final
+        trim();
     }
 
 
@@ -195,5 +214,47 @@ var Arbol = {
             data: this.evaluar(operador, this.getNumber(n2), this.getNumber(n1))
         };
     }
-
 };
+
+var Recorrido = {
+    /* (raíz, izquierdo, derecho).Para recorrer un árbol binario no vacío en preorden, hay que realizar las siguientes operaciones, *recursivamente en cada nodo, comenzando con el nodo de raíz:
+     */
+    preorden: function (nodo, log) {
+        if (nodo == null)
+            return;
+
+        // console.info(nodo.label); //mostrar datos del nodo
+        log.push(nodo.label);
+        if (!nodo.children)
+            return;
+        this.preorden(nodo.children[0], log); //recorre subarbol izquierdo
+        this.preorden(nodo.children[1], log); //recorre subarbol derecho
+    },
+    /*     (izquierdo, derecho, raíz). Para recorrer un árbol binario no vacío en postorden, hay que realizar las siguientes operaciones recursivamente en cada nodo:*/
+    postorden: function (nodo, log) {
+        if (nodo == null)
+            return;
+        if (nodo.children) {
+            this.postorden(nodo.children[0], log);
+            this.postorden(nodo.children[1], log);
+        }
+        log.push(nodo.label);
+        // console.info(nodo.label);
+    },
+    /*    Inorden: (izquierdo, raíz, derecho).Para recorrer un árbol binario no vacío en inorden(simétrico), hay que realizar las siguientes operaciones recursivamente en cada nodo:*/
+    inorden: function (nodo, log) {
+        if (nodo == null)
+            return;
+
+        if (nodo.children) {
+            this.inorden(nodo.children[0], log);
+        }
+        log.push(nodo.label);
+        //console.info(nodo.label);
+        if (nodo.children) {
+            this.inorden(nodo.children[1], log);
+        }
+
+    }
+
+}

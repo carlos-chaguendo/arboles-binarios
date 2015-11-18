@@ -1,0 +1,68 @@
+body {
+    background-color: #f8f8f8;
+    color: #222;
+    font-family: helvetica, arial, sans-serif;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 2.1px;
+    margin: 26px auto auto;
+    max-width: 80%;
+    padding: 10px;
+}
+
+input {
+    background-color: transparent;
+    border-color: #ccc;
+    border-image: none;
+    border-style: none none solid;
+    border-width: 1px;
+}
+
+.pui-tree .pui-tree-toggler {
+    display: none !important;
+}
+
+.pui-tree {
+    /* width:940px;*/
+    
+    border: none !important;
+    width: auto !important;
+}
+
+.pui-treenode {
+    float: left;
+}
+
+.pui-treenode-content {
+    background-color: #ccc;
+    margin: 1px;
+    border-radius: 3px;
+    display: block;
+    text-align: center;
+}
+
+.pui-tree .ui-treenode-children {
+    padding: 0px;
+}
+
+.pui-treenode:before {
+    content: "|";
+    border: solid 0px red;
+    width: 50%;
+    padding: 0px;
+    position: relative;
+    display: block;
+    height: 0px;
+    margin-left: 25%;
+    text-align: center;
+    margin-top: -6px;
+    color: #ccc;
+}
+
+.pui-treenode-content {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 18px;
+}
