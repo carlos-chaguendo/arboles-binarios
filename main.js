@@ -33,12 +33,22 @@ function recorerEnOrden() {
 
 
 function nuevoArbol() {
+    var currentTimeMillis = new Date().getTime();
 
     var expresion = $('#txtExtrada').val();
-
     var nodos = Arbol.crear(expresion);
     window.actualesNodos = nodos[0];
 
+    recorerEnOrden();
+
+
+
+
+
+    var time = new Date().getTime() - currentTimeMillis;
+
+
+    console.info('Tiempo de ejecucion ', time);
     console.info(nodos);
 
     $('#resultado').html('=' + nodos[0].data);
@@ -59,6 +69,8 @@ function nuevoArbol() {
         },
         nodes: nodos
     });
+
+    console.info('Tiempo de ejecucion ', new Date().getTime() - currentTimeMillis);
 
 }
 
