@@ -1,5 +1,5 @@
 # arboles-binarios
-Convierte una expresión algebraica a un arbol binario.
+Convierte una expresión algebraica a un arbol binario. Una manera adecuada de representar expresiones aritméticas es a través de los árboles binarios de expresiones.
 
 Operadores:
 ```
