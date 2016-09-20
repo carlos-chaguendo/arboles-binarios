@@ -5,7 +5,7 @@ Operadores:
 ```
 + - * / ^
 ```
-Ejemplo:Al ingresar la expresión 2+3*4+2^3 generara el siguiente arbol deacuerdo deacuerdo a la precedencia de operadores 
+Ejemplo:Al ingresar la expresión 2+3*4+2^3 se genera el arboles binarios de expresiones, deacuerdo a la precedencia de operadores 
 ```
         22 =
 			└── +
